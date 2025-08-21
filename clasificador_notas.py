@@ -1,38 +1,59 @@
-## Enunciado: 
-## Clasificar notas (aprobado/reprobado/excelente)
-
+# Importamos el módulo random para generar calificaciones aleatorias
 import random
 
+# Lista de nombres de docentes registrados en el sistema
 nombres = ["laura", "tommy", "angela"]
+
+# Lista de códigos correspondientes a cada docente (índices coinciden con 'nombres')
 codigos = ["0001", "0002", "0003"]
 
 print("Bienvenid@ al sistema de calificación para docentes")
 print(" ")
 
-nombre = input("Por favor ingrese su nombre ")
+# Se solicita el nombre del docente
+nombre = input("Por favor ingrese su nombre: ")
 
-if nombre in nombres: 
+# Verificamos si el nombre está en la lista de docentes
+if nombre in nombres:
+    # Obtenemos el índice del docente (para comparar con su código)
     indice = nombres.index(nombre)
-    contador = 0 
+    
+    # Contador de intentos para ingresar el código correcto
+    contador = 0
 
-    while contador < 3: 
-        code = input("Ahora su codigo docente para validar credenciales ")
+    # Permitimos hasta 3 intentos
+    while contador < 3:
+        codigo = input("Ahora ingrese su código docente para validar credenciales: ")
 
-        if code == codigos[indice]:
+        # Validamos que el código ingresado corresponda al docente
+        if codigo == codigos[indice]:
+            # Generamos 10 calificaciones aleatorias entre 1.0 y 10.0 con un decimal
             calificaciones = [round(random.uniform(1.0, 10.0), 1) for _ in range(10)]
+
+            # Recorremos cada nota para clasificarla
             for nota in calificaciones:
-                print(nota)
+                print(" ")
+                print(f"Nota obtenida: {nota}")
+
+                # Condicional para determinar el estado del estudiante
                 if nota < 6.0:
-                    print (f"Tu nota es de: ({nota}). Has Reprobado")
-                elif nota >= 6.0 and nota < 9.9: 
-                    print(f"Tu nota es de: ({nota}). Has Aprobado")
+                    print("Resultado: Has REPROBADO ❌")
+                elif nota < 9.9:
+                    print("Resultado: Has APROBADO ✅")
                 else:
-                    print(f"Tu nota es de: ({nota}). EXCELENTE !!")
-            break        
-        else: 
+                    print("Resultado: EXCELENTE 🎉")
+            # Rompemos el bucle porque ya se validaron las credenciales
+            break
+        else:
+            # Si el código es incorrecto, sumamos un intento
             contador += 1
-            print("Ha ocurrido un error en el sistema")
+            print("⚠️ Ha ocurrido un error en el sistema, código incorrecto.")
+
+    # Si se completaron 3 intentos sin éxito
     if contador == 3:
-        print(" Acceso denegado. Se acabaron los intentos.")        
-else: 
-    print("Tu nombre no esta en el sistema, por favor reinicia e intenta de nuevo")
+        print("⛔ Acceso denegado. Se acabaron los intentos.")
+
+else:
+    # Si el nombre no está en la lista de docentes
+    print("Tu nombre no está en el sistema, por favor reinicia e intenta de nuevo.")
+
