@@ -37,21 +37,21 @@ if nombre in nombres:
 
                 # Condicional para determinar el estado del estudiante
                 if nota < 6.0:
-                    print("Resultado: Has REPROBADO ❌")
+                    print("Resultado: Has REPROBADO ")
                 elif nota < 9.9:
-                    print("Resultado: Has APROBADO ✅")
+                    print("Resultado: Has APROBADO ")
                 else:
-                    print("Resultado: EXCELENTE 🎉")
+                    print("Resultado: EXCELENTE ")
             # Rompemos el bucle porque ya se validaron las credenciales
             break
         else:
             # Si el código es incorrecto, sumamos un intento
             contador += 1
-            print("⚠️ Ha ocurrido un error en el sistema, código incorrecto.")
+            print(" Ha ocurrido un error en el sistema, código incorrecto.")
 
     # Si se completaron 3 intentos sin éxito
     if contador == 3:
-        print("⛔ Acceso denegado. Se acabaron los intentos.")
+        print(" Acceso denegado. Se acabaron los intentos.")
 
 else:
     # Si el nombre no está en la lista de docentes
