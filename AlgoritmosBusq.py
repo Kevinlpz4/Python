@@ -181,7 +181,7 @@ def busqueda_A(grafo, heuristicaA, inicio, meta, rutas):
                 mejor_h = h
 
         if mejor_vecino is None:            # Si no hay vecinos válidos, termina
-            print("⚠️ No hay más vecinos disponibles. No se encontró un camino.")
+            print("No hay más vecinos disponibles. No se encontró un camino.")
             return camino, acumulado, heuristicas
 
         # Se muestra el movimiento elegido
@@ -259,7 +259,7 @@ while True: # Bucle principal del menu
             print("\n=== TODAS LAS RUTAS GENERADAS ===")
 
             for i, ruta in enumerate(rutas, 1):
-                print(f"\n🔹 Ruta {i}:")
+                print(f"\nRuta {i}:")
 
                 # Si la ruta es una tupla (como la de búsqueda voraz)
                 if isinstance(ruta, tuple):
